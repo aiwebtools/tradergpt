@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,7 +11,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
+      <section className="pt-36 md:pt-32 pb-16 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-8">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -21,7 +20,7 @@ const Index = () => {
             <p className="text-xl text-cyber-light mb-8">
               Advanced AI-powered trading signals and real-time market analysis
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4">
               <a
                 href="https://chatgpt.com/g/g-Spg0j0GHd-trader-gpt"
                 target="_blank"
