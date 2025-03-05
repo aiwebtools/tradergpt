@@ -23,7 +23,7 @@ const Header = () => {
           
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
             <p className="text-xs text-cyber-light/60 bg-cyber-gray/30 px-3 py-1.5 rounded-full max-w-[280px] text-center">
-              For simulation purposes only, do not rely on this for professional trading advice. This tool is experimental in nature and is not financial advice.
+              For simulation only; not financial or trading advice.
             </p>
             <a
               href="https://chatgpt.com/g/g-Spg0j0GHd-trader-gpt"
