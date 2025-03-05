@@ -11,9 +11,14 @@ const Header = () => {
             <div className="text-2xl font-bold text-white">
               <span className="text-neon-green">TRADER</span> GPT
             </div>
-            <div className="text-xs text-cyber-light opacity-75">
+            <a
+              href="https://www.aiwebtools.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-cyber-light opacity-75 hover:opacity-100 transition-opacity"
+            >
               Presented by AiWebTools.Ai
-            </div>
+            </a>
           </Link>
           
           <div className="flex items-center gap-6">
