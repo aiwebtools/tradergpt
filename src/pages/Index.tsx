@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AlertTriangle, ChevronRight, PlayCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [videoPlaying, setVideoPlaying] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    toast({
+      title: "Disclaimer",
+      description: "For simulation purposes only. This is not financial or trading advice.",
+      duration: 10000,
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-cyber-black text-white">
