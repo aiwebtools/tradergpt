@@ -3,9 +3,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AlertTriangle, ChevronRight, PlayCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 const Index = () => {
   const [videoPlaying, setVideoPlaying] = useState(true);
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -18,6 +28,26 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-cyber-black text-white">
+      <AlertDialog open={showDisclaimer} onOpenChange={setShowDisclaimer}>
+        <AlertDialogContent className="bg-cyber-black border border-neon-green/20">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-neon-green">Important Disclaimer</AlertDialogTitle>
+            <AlertDialogDescription className="text-cyber-light">
+              This is a simulation tool only. Nothing presented here constitutes financial or trading advice.
+              By clicking "I Agree", you acknowledge that you understand this is for educational purposes only.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction 
+              className="bg-neon-green/10 text-neon-green border border-neon-green hover:bg-neon-green/20"
+              onClick={() => setShowDisclaimer(false)}
+            >
+              I Agree
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
       <Header />
       
       {/* Hero Section */}
