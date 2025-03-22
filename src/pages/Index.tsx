@@ -1,7 +1,8 @@
+
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AlertTriangle, ChevronRight, PlayCircle } from "lucide-react";
+import { AlertTriangle, ChevronRight, PlayCircle, MessageCircle, Star, User, ChevronDown, ChevronUp, Info } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import {
   AlertDialog,
@@ -12,6 +13,12 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Index = () => {
   const [videoPlaying, setVideoPlaying] = useState(true);
@@ -90,6 +97,81 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-16 bg-cyber-gray/50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-2">
+            Trader <span className="text-neon-green">Success Stories</span>
+          </h2>
+          <p className="text-center text-cyber-light mb-12 max-w-2xl mx-auto">
+            See what our users are saying about their experience with Trader GPT
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-xl bg-cyber-black border border-neon-green/20 hover:border-neon-green/30 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-cyber-gray flex items-center justify-center">
+                    <User className="w-6 h-6 text-neon-green" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold">{testimonial.name}</h3>
+                    <p className="text-cyber-light text-sm">{testimonial.title}</p>
+                  </div>
+                </div>
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      className={`w-4 h-4 ${i < testimonial.rating ? 'text-neon-green' : 'text-cyber-gray'}`} 
+                      fill={i < testimonial.rating ? '#39FF14' : 'none'} 
+                    />
+                  ))}
+                </div>
+                <p className="text-cyber-light italic">"{testimonial.quote}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-2">
+            Frequently Asked <span className="text-neon-green">Questions</span>
+          </h2>
+          <p className="text-center text-cyber-light mb-12 max-w-2xl mx-auto">
+            Everything you need to know about Trader GPT
+          </p>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="border border-neon-green/20 rounded-lg bg-cyber-gray/50 overflow-hidden"
+                >
+                  <AccordionTrigger className="px-6 py-4 hover:bg-cyber-gray/80 hover:no-underline">
+                    <div className="flex items-center gap-3 text-left">
+                      <Info className="w-5 h-5 text-neon-green flex-shrink-0" />
+                      <span>{faq.question}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-4 pt-2 text-cyber-light">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-16 bg-cyber-gray">
         <div className="container mx-auto px-4">
@@ -151,6 +233,50 @@ const features = [
     title: "Smart Signals",
     description: "Get clear buy, sell, or hold signals with detailed reasoning and confidence levels.",
   },
+];
+
+const testimonials = [
+  {
+    name: "Alex Thompson",
+    title: "Simulation Trader",
+    rating: 5,
+    quote: "Trader GPT's analysis helped me understand market patterns I would have missed on my own. Great simulation tool for learning!"
+  },
+  {
+    name: "Sarah Chen",
+    title: "Trading Educator",
+    rating: 5,
+    quote: "I use Trader GPT to teach my students about different market strategies. The signals are clear and the reasoning is educational."
+  },
+  {
+    name: "Michael Rodriguez",
+    title: "Finance Student",
+    rating: 4,
+    quote: "Perfect companion for learning to trade. I appreciate how it explains the reasoning behind each signal in the simulation."
+  }
+];
+
+const faqs = [
+  {
+    question: "Is Trader GPT offering real financial advice?",
+    answer: "No, Trader GPT is a simulation tool designed for educational purposes only. It should not be used for making real financial decisions or as a substitute for professional financial advice."
+  },
+  {
+    question: "How accurate are the trading signals?",
+    answer: "The signals are based on historical data analysis and AI pattern recognition in our simulation environment. While they aim to be educational, they should not be relied upon for actual trading decisions."
+  },
+  {
+    question: "Can I use Trader GPT for my real investment portfolio?",
+    answer: "Trader GPT is explicitly not designed for use with real investments. It is a simulation and educational tool only. Always consult with qualified financial professionals before making investment decisions."
+  },
+  {
+    question: "How often are the market signals updated?",
+    answer: "In our simulation environment, market signals are updated frequently to provide a realistic learning experience. The specific timing depends on the market and asset class being analyzed."
+  },
+  {
+    question: "What technical indicators does Trader GPT use?",
+    answer: "Trader GPT incorporates a variety of technical indicators including RSI, MACD, Bollinger Bands, moving averages, and volume analysis to provide comprehensive educational market insights."
+  }
 ];
 
 export default Index;
