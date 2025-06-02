@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -60,6 +59,16 @@ const Index = () => {
       {/* Hero Section */}
       <section className="pt-36 md:pt-32 pb-16 relative overflow-hidden">
         <div className="container mx-auto px-4">
+          {/* Small Disclaimer Notice */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="p-4 rounded-lg bg-cyber-gray/30 border border-neon-green/20 text-center">
+              <p className="text-sm text-cyber-light">
+                <Info className="w-4 h-4 inline mr-2" />
+                For informational, educational, and research purposes only. Not financial advice.
+              </p>
+            </div>
+          </div>
+
           <div className="max-w-3xl mx-auto text-center mb-8">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-neon-green">TRADER</span> GPT
