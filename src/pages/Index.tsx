@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -71,10 +72,15 @@ const Index = () => {
 
           <div className="max-w-3xl mx-auto text-center mb-8">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-neon-green">TRADER</span> GPT
+              <span className="text-neon-green">AI WEB TOOLS</span> - TRADER GPT
             </h1>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-cyber-light">
+              Advanced AI Tools for Trading & Market Analysis
+            </h2>
             <p className="text-xl text-cyber-light mb-8">
-              Advanced AI-powered trading signals and real-time market analysis
+              Discover the power of artificial intelligence with our comprehensive suite of AI web tools. 
+              Get AI-powered trading signals, real-time market analysis, and advanced financial research tools 
+              designed for traders, investors, and financial professionals.
             </p>
             <div className="flex flex-col md:flex-row justify-center items-center gap-4">
               <a
@@ -82,8 +88,9 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 bg-neon-green/10 text-neon-green border border-neon-green rounded-full hover:bg-neon-green/20 transition-all duration-300 animate-neon-border flex items-center gap-2"
+                aria-label="Access AI Trading Tools - Trader GPT"
               >
-                Start Trading Now
+                Try Our AI Trading Tools Now
                 <ChevronRight className="w-5 h-5" />
               </a>
             </div>
@@ -96,7 +103,7 @@ const Index = () => {
                 width="100%"
                 height="100%"
                 src={`https://www.youtube.com/embed/Izs80Fak4hQ?autoplay=1&mute=0&controls=1&quality=hd1080`}
-                title="Trader GPT Demo"
+                title="AI Web Tools - Trader GPT Demo - Advanced AI Trading Signals"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="absolute inset-0"
@@ -106,14 +113,48 @@ const Index = () => {
         </div>
       </section>
 
+      {/* AI Tools Overview Section */}
+      <section className="py-16 bg-cyber-gray/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4">
+            Comprehensive <span className="text-neon-green">AI Web Tools</span> Suite
+          </h2>
+          <p className="text-center text-cyber-light mb-12 max-w-3xl mx-auto">
+            AIWEBTOOLS.AI provides cutting-edge artificial intelligence tools designed to enhance your trading 
+            and investment research. Our AI-powered platform combines machine learning algorithms with 
+            real-time data analysis to deliver actionable insights.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {aiToolsFeatures.map((tool, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-xl bg-cyber-black border border-neon-green/20 hover:border-neon-green/30 transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold mb-4 text-neon-green">{tool.title}</h3>
+                <p className="text-cyber-light mb-4">{tool.description}</p>
+                <ul className="text-sm text-cyber-light space-y-2">
+                  {tool.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <div className="w-1 h-1 bg-neon-green rounded-full"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-16 bg-cyber-gray/50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-2">
-            Trader <span className="text-neon-green">Success Stories</span>
+            AI Tools <span className="text-neon-green">Success Stories</span>
           </h2>
           <p className="text-center text-cyber-light mb-12 max-w-2xl mx-auto">
-            See what our users are saying about their experience with Trader GPT
+            See what our users are saying about their experience with our AI web tools and trading platform
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -151,10 +192,10 @@ const Index = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-2">
-            Frequently Asked <span className="text-neon-green">Questions</span>
+            AI Tools <span className="text-neon-green">FAQ</span>
           </h2>
           <p className="text-center text-cyber-light mb-12 max-w-2xl mx-auto">
-            Everything you need to know about Trader GPT
+            Everything you need to know about our AI web tools and trading platform
           </p>
           
           <div className="max-w-3xl mx-auto">
@@ -185,7 +226,7 @@ const Index = () => {
       <section className="py-16 bg-cyber-gray">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose <span className="text-neon-green">Trader GPT</span>
+            Why Choose <span className="text-neon-green">AI Web Tools</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
@@ -211,9 +252,9 @@ const Index = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-2">Legal Disclaimer</h3>
                   <p className="text-cyber-light">
-                    Trader GPT is a simulation AI tool for informational and research purposes only. 
+                    AI Web Tools and Trader GPT are simulation AI tools for informational and research purposes only. 
                     The information provided should not be construed as professional trading advice. 
-                    Users acknowledge that they will not rely on this tool for real-life trading 
+                    Users acknowledge that they will not rely on these AI tools for real-life trading 
                     decisions. Past performance does not guarantee future results. Trading involves 
                     substantial risk and may result in the loss of your invested capital.
                   </p>
@@ -229,62 +270,95 @@ const Index = () => {
   );
 };
 
+const aiToolsFeatures = [
+  {
+    title: "AI Trading Signals",
+    description: "Advanced machine learning algorithms analyze market patterns to generate intelligent trading signals for educational purposes.",
+    features: [
+      "Real-time signal generation",
+      "Technical indicator analysis", 
+      "Pattern recognition AI",
+      "Risk assessment tools"
+    ]
+  },
+  {
+    title: "Market Analysis AI",
+    description: "Comprehensive AI-powered market analysis tools that provide deep insights into market trends and movements.",
+    features: [
+      "Sentiment analysis",
+      "Trend prediction models",
+      "Volume analysis AI",
+      "Market correlation tools"
+    ]
+  },
+  {
+    title: "Research Tools",
+    description: "Intelligent research and analysis tools powered by artificial intelligence for enhanced market understanding.",
+    features: [
+      "Automated report generation",
+      "Historical data analysis",
+      "Comparative analysis AI",
+      "Performance tracking"
+    ]
+  }
+];
+
 const features = [
   {
-    title: "Real-Time Analysis",
-    description: "Access live market data and instant technical analysis for informed trading decisions.",
+    title: "Real-Time AI Analysis",
+    description: "Access live market data and instant AI-powered technical analysis for informed educational trading research.",
   },
   {
-    title: "Advanced Indicators",
-    description: "Comprehensive technical indicators including RSI, MACD, and Bollinger Bands.",
+    title: "Advanced AI Indicators",
+    description: "Comprehensive AI-enhanced technical indicators including RSI, MACD, and Bollinger Bands analysis.",
   },
   {
-    title: "Smart Signals",
-    description: "Get clear buy, sell, or hold signals with detailed reasoning and confidence levels.",
+    title: "Smart AI Signals",
+    description: "Get clear AI-generated buy, sell, or hold signals with detailed reasoning and confidence levels for research purposes.",
   },
 ];
 
 const testimonials = [
   {
     name: "Alex Thompson",
-    title: "Simulation Trader",
+    title: "AI Tools Enthusiast",
     rating: 5,
-    quote: "Trader GPT's analysis helped me understand market patterns I would have missed on my own. Great simulation tool for learning!"
+    quote: "These AI web tools helped me understand market patterns I would have missed. The AI analysis is incredibly detailed and educational!"
   },
   {
     name: "Sarah Chen",
-    title: "Trading Educator",
+    title: "Financial Educator",
     rating: 5,
-    quote: "I use Trader GPT to teach my students about different market strategies. The signals are clear and the reasoning is educational."
+    quote: "I use these AI tools to teach students about market analysis. The artificial intelligence provides clear explanations perfect for learning."
   },
   {
     name: "Michael Rodriguez",
-    title: "Finance Student",
+    title: "Research Analyst",
     rating: 4,
-    quote: "Perfect companion for learning to trade. I appreciate how it explains the reasoning behind each signal in the simulation."
+    quote: "Perfect AI-powered companion for financial research. The machine learning algorithms provide insights that enhance my analysis workflow."
   }
 ];
 
 const faqs = [
   {
-    question: "Is Trader GPT offering real financial advice?",
-    answer: "No, Trader GPT is a simulation tool designed for educational purposes only. It should not be used for making real financial decisions or as a substitute for professional financial advice."
+    question: "What makes these AI web tools different from other trading tools?",
+    answer: "Our AI web tools leverage advanced machine learning algorithms and artificial intelligence to provide educational market analysis. Unlike basic tools, our AI continuously learns from market patterns to deliver sophisticated insights for research purposes only."
   },
   {
-    question: "How accurate are the trading signals?",
-    answer: "The signals are based on historical data analysis and AI pattern recognition in our simulation environment. While they aim to be educational, they should not be relied upon for actual trading decisions."
+    question: "Are these AI tools offering real financial advice?",
+    answer: "No, our AI web tools are simulation and educational platforms designed for learning purposes only. They should not be used for making real financial decisions or as a substitute for professional financial advice."
   },
   {
-    question: "Can I use Trader GPT for my real investment portfolio?",
-    answer: "Trader GPT is explicitly not designed for use with real investments. It is a simulation and educational tool only. Always consult with qualified financial professionals before making investment decisions."
+    question: "How accurate are the AI-powered trading signals?",
+    answer: "The AI signals are based on historical data analysis and machine learning pattern recognition in our simulation environment. While our artificial intelligence aims to be educational, signals should not be relied upon for actual trading decisions."
   },
   {
-    question: "How often are the market signals updated?",
-    answer: "In our simulation environment, market signals are updated frequently to provide a realistic learning experience. The specific timing depends on the market and asset class being analyzed."
+    question: "Can I use these AI tools for my real investment portfolio?",
+    answer: "These AI web tools are explicitly designed for simulation and educational purposes only. They are not intended for use with real investments. Always consult with qualified financial professionals before making investment decisions."
   },
   {
-    question: "What technical indicators does Trader GPT use?",
-    answer: "Trader GPT incorporates a variety of technical indicators including RSI, MACD, Bollinger Bands, moving averages, and volume analysis to provide comprehensive educational market insights."
+    question: "What AI technologies power these web tools?",
+    answer: "Our AI web tools incorporate machine learning algorithms, natural language processing, pattern recognition AI, and advanced data analysis techniques to provide comprehensive educational market insights and research capabilities."
   }
 ];
 
